@@ -1,19 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Restful Tasks</title>
-</head>
-<body>
-  <div class="container">
-    <h1>Restful Tasks API</h1>
-    <h2>All of the tasks:</h2>
-    <p *ngFor="let task of tasks">{{task['title']}} - {{ task['description'] }}</p>
-    <h2>The first task: </h2>
-    <p>{{ tasks && tasks[0].name }}</p>
+<div class="container">
+  <h1>Restful Tasks API</h1>
+  <div class="blue-border">
+    <button class="center" (click)="GetTasksButtonClick($event)">Get Tasks</button>
+    <p *ngFor="let task of tasks">{{ task['title'] }} - {{ task['description'] }}</p>
   </div>
+</div>
 
-</body>
-</html>

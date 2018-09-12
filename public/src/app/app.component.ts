@@ -11,7 +11,7 @@ export class AppComponent implements OnInit {
   tasks;
   constructor(private _httpService: HttpService) {}
   ngOnInit() {
-    this.getTasks();
+    // this.getTasks();
   }
 
   getTasks() {
@@ -20,5 +20,18 @@ export class AppComponent implements OnInit {
       console.log("Data:", data);
       this.tasks = data;
     })
+  }
+  GetTasksButtonClick(): void { 
+    console.log(`Click event is working`);
+    this.getTasks();
+  }
+  onButtonClickParam(num: Number): void { 
+      console.log(`Click event is working with num param: ${num}`);
+  }
+  onButtonClickParams(num: Number, str: String): void { 
+      console.log(`Click event is working with num param: ${num} and str param: ${str}`);
+  }
+  onButtonClickEvent(event: any): void { 
+      console.log(`Click event is working with event: ${event}`);
   }
 }
