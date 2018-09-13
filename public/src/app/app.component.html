@@ -2,7 +2,17 @@
   <h1>Restful Tasks API</h1>
   <div class="blue-border">
     <button class="center" (click)="GetTasksButtonClick($event)">Get Tasks</button>
-    <p *ngFor="let task of tasks">{{ task['title'] }} - {{ task['description'] }}</p>
+    <div *ngFor="let task of alltasks">
+      <p>{{ task['title'] }}
+        <button class="show-button" (click)="GetOneTaskButtonClick(task['_id'])">Show</button>
+      </p>
+    </div>
+  </div>
+  <div *ngIf="onetask != undefined">
+    <div class="green-border">
+      <h3>{{ onetask['title'] }}</h3>
+      <p>{{ onetask['description'] }}</p>
+    </div>
   </div>
 </div>
 
