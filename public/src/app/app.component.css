@@ -9,15 +9,28 @@
 
 .blue-border{
     margin: 20px auto;
-    padding: 15px;
+    padding: 5px;
     border: 4px solid blue;
     border-radius: 10px;
 }
 
 .green-border{
     margin: 10px auto;
-    padding: 0px;
+    padding: 5px;
     border: 4px solid green;
+    border-radius: 10px;
+}
+.red-border{
+    margin: 10px auto;
+    padding: 5px;
+    border: 4px solid red;
+    border-radius: 10px;
+}
+
+.purple-border{
+    margin: 10px auto;
+    padding: 5px;
+    border: 4px solid purple;
     border-radius: 10px;
 }
 
@@ -27,4 +40,8 @@
     justify-content: center;
     text-align: center;
     margin: 0 auto;
+}
+
+.text-left{
+    text-align: left;
 }

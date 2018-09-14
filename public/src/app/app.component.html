@@ -1,18 +1,57 @@
 <div class="container">
   <h1>Restful Tasks API</h1>
+  <div class="red-border">
+    <h3>Create New Task</h3>
+    <form (submit)="makeTask()">
+      <div>
+        <table>
+          <tr>
+            <td>Title:</td>
+            <td><input [(ngModel)]="newtask.title" type="text" name="newtask.title"/></td>
+          </tr>
+          <tr>
+            <td>Description:</td>
+            <td><input [(ngModel)]="newtask.description" type="text" name="newtask.description"/></td>
+          </tr>
+        </table>
+        <input type="submit" value="Make Task" />
+      </div>
+    </form>
+  </div>
   <div class="blue-border">
-    <button class="center" (click)="GetTasksButtonClick($event)">Get Tasks</button>
+    <button class="center" (click)="getTasks()">Get Tasks</button>
     <div *ngFor="let task of alltasks">
       <p>{{ task['title'] }}
-        <button class="show-button" (click)="GetOneTaskButtonClick(task['_id'])">Show</button>
+        <button class="show-button" (click)="getOneTask(task['_id'])">Show</button>
       </p>
     </div>
   </div>
-  <div *ngIf="onetask != undefined">
+  <div *ngIf="(onetask != undefined) && (showEdit != true)">
     <div class="green-border">
       <h3>{{ onetask['title'] }}</h3>
       <p>{{ onetask['description'] }}</p>
+      <button (click)="editToggle(onetask['_id'])">Edit</button>
+      <button (click)="deleteTask()">Delete</button>
     </div>
+  </div>
+  <div class="purple-border" *ngIf="showEdit == true">
+    <h3>Edit Task</h3>
+    <form (submit)="editTask()">
+      <div>
+        <table>
+          <tr>
+            <td>Title:</td>
+            <td><input [(ngModel)]="edittask.title" type="text" name="edittask.title" /></td>
+          </tr>
+          <tr>
+            <td>Description:</td>
+            <td><input [(ngModel)]="edittask.description" type="text" name="edittask.description" /></td>
+          </tr>
+        </table>
+        <input type="submit" value="Edit Task" />
+        <button (click)="editToggle()">Cancel</button>
+      </div>
+    </form>
   </div>
 </div>
 
