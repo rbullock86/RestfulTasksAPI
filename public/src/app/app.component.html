@@ -26,6 +26,9 @@
       </p>
     </div>
   </div>
+  <div>
+    <app-grab-task *ngIf="onetask" [showOneTask]="onetask"></app-grab-task>
+  </div>
   <div *ngIf="(onetask != undefined) && (showEdit != true)">
     <div class="green-border">
       <h3>{{ onetask['title'] }}</h3>
